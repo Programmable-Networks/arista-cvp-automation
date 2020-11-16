@@ -1,0 +1,23 @@
+---
+
+  - name: Config Generator
+    hosts: localhost
+    connection: local
+    gather_facts: no
+
+    pre_tasks:
+
+      - name: Delete staging directories
+        file: path=./staging/{{ item.hostname }}/ state=absent
+        with_items:
+          - "{{ BorderLeaf }}"
+        no_log: false
+
+      - name: Create template staging directories
+        file: path=./staging/{{ item.hostname }}/ state=directory
+        with_items:
+          - "{{ BorderLeaf }}"
+        no_log: false
+
+    roles:
+      - BorderLeaf

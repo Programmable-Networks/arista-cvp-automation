@@ -1,0 +1,5 @@
+---
+
+- name: BorderLeaf TACACS config
+  template: src=tacacs_config.j2 dest=./staging/{{ item.hostname }}/a_{{ item.hostname }}_aaa.cfg
+  with_items: "{{ BorderLeaf }}"

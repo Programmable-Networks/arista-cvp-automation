@@ -1,0 +1,12 @@
+
+tacacs_server_ip: 172.16.3.228
+tacacs_key: pr0gra33abl3n3tw0rks
+tacacs_group_name: prog_net_tacacs
+
+BorderLeaf:
+
+  - hostname: KOMOE
+
+  - hostname: BONO
+
+  - hostname: VOLTA
