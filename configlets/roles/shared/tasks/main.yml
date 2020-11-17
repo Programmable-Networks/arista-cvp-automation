@@ -1,0 +1,5 @@
+---
+
+- name: Arista TACACS config
+  template: src=tacacs_config.j2 dest=./staging/shared/a_tacacs.cfg
+  with_items: "{{ shared }}"

@@ -1,0 +1,13 @@
+!
+tacacs-server host {{ tacacs.tacacs_server_ip }}
+!
+tacacs-server key {{tacacs.tacacs_key}}
+tacacs-server timeout 10
+!
+aaa group server tacacs+ {{ tacacs.tacacs_group_name }}
+ server {{ tacacs.tacacs_server_ip }}
+ exit
+!
+aaa authentication login default group {{ tacacs.tacacs_group_name }} local
+aaa authentication enable default group {{ tacacs.tacacs_group_name }} local
+!
