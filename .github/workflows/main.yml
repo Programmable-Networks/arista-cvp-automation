@@ -21,13 +21,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       # Run config_generator playbook
       - name: Run Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: config_generator.yml
           directory: ./configlets/
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: staging
+          path: ./configlets/staging
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
